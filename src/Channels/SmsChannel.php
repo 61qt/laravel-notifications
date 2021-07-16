@@ -43,7 +43,7 @@ class SmsChannel extends DatabaseChannel
             return;
         }
 
-        if (!$notifiable instanceof MessageInterface) {
+        if (!$notification instanceof MessageInterface) {
             return;
         }
 
