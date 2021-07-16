@@ -1,0 +1,19 @@
+{
+    "name": "61qt/laravel-notifications",
+    "description": "Laravel extend notifications",
+    "type": "library",
+    "require": {
+        "illuminate/notifications": "^8.50"
+    },
+    "suggest": {
+        "overtrue/laravel-wechat": "Required to use the WeChat driver (^6.0).",
+        "overtrue/easy-sms": "Required to use the sms driver (^1.3).",
+        "sssxxxzzz/dingtalk": "Required to use the DingTalk driver (^2.3)."
+    },
+    "authors": [
+        {
+            "name": "xurh",
+            "email": "xurhwork@gmail.com"
+        }
+    ]
+}
