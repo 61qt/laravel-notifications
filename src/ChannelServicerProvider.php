@@ -1,6 +1,6 @@
 <?php
 
-namespace QT\Notification;
+namespace QT\Notifications;
 
 use Overtrue\EasySms\EasySms;
 use Illuminate\Support\ServiceProvider;
