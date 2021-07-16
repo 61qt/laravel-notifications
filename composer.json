@@ -5,6 +5,11 @@
     "require": {
         "illuminate/notifications": "^8.50"
     },
+    "autoload": {
+        "psr-4": {
+            "QT\\Notifications": "src/"
+        }
+    },
     "suggest": {
         "overtrue/laravel-wechat": "Required to use the WeChat driver (^6.0).",
         "overtrue/easy-sms": "Required to use the sms driver (^1.3).",
