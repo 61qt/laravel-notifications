@@ -2,9 +2,8 @@
 
 namespace QT\Notifications\Channels;
 
-use RuntimeException;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notification;
+use QT\Notifications\Contracts\EloquentMessage;
 use Illuminate\Notifications\Channels\DatabaseChannel;
 
 class EloquentChannel extends DatabaseChannel
@@ -18,17 +17,13 @@ class EloquentChannel extends DatabaseChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        $model = $notifiable->routeNotificationFor('model', $notification);
-
-        if (is_string($model) && class_exists($model)) {
-            $model = new $model;
+        if (!$notification instanceof EloquentMessage) {
+            return;
         }
 
-        if (!is_object($model) || !$model instanceof Model) {
-            throw new RuntimeException('通过eloquent生成通知必须指定一个具体的model');
-        }
-
-        return $model::create($this->buildPayload($notifiable, $notification));
+        $notification->getModel($notifiable)
+            ->fill($this->buildPayload($notifiable, $notification))
+            ->save();
     }
 
     /**
