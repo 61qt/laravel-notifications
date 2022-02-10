@@ -3,7 +3,7 @@
     "description": "Laravel extend notifications",
     "type": "library",
     "require": {
-        "illuminate/notifications": "^8.50"
+        "illuminate/notifications": "^8.50 || ^9.0"
     },
     "autoload": {
         "psr-4": {
